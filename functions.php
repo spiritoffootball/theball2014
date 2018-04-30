@@ -139,3 +139,23 @@ add_filter( 'theball_supporters', 'theball2014_supporters_file', 10, 1 );
 
 
 
+/**
+ * Override users in "Team" template file.
+ *
+ * @since 1.0.1
+ *
+ * @param array $users The default set of users.
+ * @return array $users The modified set of users.
+ */
+function theball2014_team_members( $default ) {
+
+	// 2014 users
+	return array( 3, 5, 8, 7, 2, 4 );
+
+}
+
+// add a filter for the above
+add_filter( 'theball_team_members', 'theball2014_team_members', 10, 1 );
+
+
+
