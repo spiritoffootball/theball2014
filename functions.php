@@ -13,7 +13,7 @@ Theme amendments and overrides.
 
 
 
-// set our version here
+// Set our version here.
 define( 'THEBALL2014_VERSION', '1.0.1' );
 
 
@@ -23,7 +23,9 @@ define( 'THEBALL2014_VERSION', '1.0.1' );
  *
  * @since 1.0
  */
-if ( !isset( $content_width ) ) { $content_width = 660; }
+if ( ! isset( $content_width ) ) {
+	$content_width = 660;
+}
 
 
 
@@ -45,7 +47,7 @@ function theball2014_setup() {
 
 }
 
-// add after theme setup hook
+// Add after theme setup hook.
 add_action( 'after_setup_theme', 'theball2014_setup' );
 
 
@@ -57,18 +59,18 @@ add_action( 'after_setup_theme', 'theball2014_setup' );
  */
 function theball2014_enqueue_styles() {
 
-	// enqueue file
+	// Enqueue file.
 	wp_enqueue_style(
 		'theball2014_css',
 		get_stylesheet_directory_uri() . '/assets/css/style-overrides.css',
-		array( 'theball_screen_css' ),
-		THEBALL2014_VERSION, // version
-		'all' // media
+		[ 'theball_screen_css' ],
+		THEBALL2014_VERSION, // Version.
+		'all' // Media.
 	);
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'wp_enqueue_scripts', 'theball2014_enqueue_styles', 105 );
 
 
@@ -83,8 +85,8 @@ add_filter( 'wp_enqueue_scripts', 'theball2014_enqueue_styles', 105 );
  */
 function theball2014_theball_image( $default ) {
 
-	// ignore default and set our own
-	return '<a href="' . get_option( 'home' ) . '" title="' . __( 'Home', 'theball2014' ) . '" class="ball_image">' .
+	// Ignore default and set our own.
+	return '<a href="' . get_home_url( null, '/' ) . '" title="' . __( 'Home', 'theball2014' ) . '" class="ball_image">' .
 			'<img src="' . get_stylesheet_directory_uri() . '/assets/images/interface/the_ball_2014.png" ' .
 				 'alt="' . esc_attr( __( 'The Ball 2014', 'theball2014' ) ) . '" ' .
 				 'title="' . esc_attr( __( 'The Ball 2014', 'theball2014' ) ) . '" ' .
@@ -94,7 +96,7 @@ function theball2014_theball_image( $default ) {
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'theball_image', 'theball2014_theball_image', 10, 1 );
 
 
@@ -109,12 +111,12 @@ add_filter( 'theball_image', 'theball2014_theball_image', 10, 1 );
  */
 function theball2014_supporters_file( $default ) {
 
-	// pass for 2014 (it's the same as the main site)
+	// Pass for 2014 (it's the same as the main site)
 	return $default;
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'theball_supporters', 'theball2014_supporters_file', 10, 1 );
 
 
@@ -130,11 +132,11 @@ add_filter( 'theball_supporters', 'theball2014_supporters_file', 10, 1 );
 function theball2014_team_members( $default ) {
 
 	// 2014 users
-	return array( 3, 5, 8, 7, 2, 4 );
+	return [ 3, 5, 8, 7, 2, 4 ];
 
 }
 
-// add a filter for the above
+// Add a filter for the above.
 add_filter( 'theball_team_members', 'theball2014_team_members', 10, 1 );
 
 

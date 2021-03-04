@@ -29,7 +29,7 @@ NOTES
 
 			<p>9th January 2014 was the 150th anniversary of the first official game of football to FA rules. On that day, The Ball 2014 kicked off from Battersea Park in London, where that game was played, and travelled across Europe and the Americas to the World Cup in Brazil.</p>
 
-			<?php /* if( !is_home() ) { ?>
+			<?php /* if ( !is_home() ) { ?>
 			<p id="gotoblog"><a href="/2014/blog/">Read the blog &rarr;</a></p>
 			<?php } */ ?>
 
