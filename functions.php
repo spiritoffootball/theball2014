@@ -19,125 +19,30 @@ define( 'THEBALL2014_VERSION', '1.0.1' );
 
 
 /**
- * Set the content width based on the theme's design and stylesheet.
- *
- * @since 1.0
- */
-if ( ! isset( $content_width ) ) {
-	$content_width = 660;
-}
-
-
-
-/**
- * Augment the Base Theme's setup function.
- *
- * @since 1.0
- */
-function theball2014_setup() {
-
-	/*
-	 * Make theme available for translation.
-	 * Translations can be added to the /languages/ directory of the child theme.
-	 */
-	load_theme_textdomain(
-		'theball2014',
-		get_stylesheet_directory() . '/languages'
-	);
-
-}
-
-// Add after theme setup hook.
-add_action( 'after_setup_theme', 'theball2014_setup' );
-
-
-
-/**
- * Add child theme's CSS file(s).
- *
- * @since 1.0
- */
-function theball2014_enqueue_styles() {
-
-	// Enqueue file.
-	wp_enqueue_style(
-		'theball2014_css',
-		get_stylesheet_directory_uri() . '/assets/css/style-overrides.css',
-		[ 'theball_screen_css' ],
-		THEBALL2014_VERSION, // Version.
-		'all' // Media.
-	);
-
-}
-
-// Add a filter for the above.
-add_filter( 'wp_enqueue_scripts', 'theball2014_enqueue_styles', 105 );
-
-
-
-/**
- * Override image of The Ball.
- *
- * @since 1.0
- *
- * @param str $default The existing markup for the image file.
- * @return str $default The modified markup for the image file.
- */
-function theball2014_theball_image( $default ) {
-
-	// Ignore default and set our own.
-	return '<a href="' . get_home_url( null, '/' ) . '" title="' . __( 'Home', 'theball2014' ) . '" class="ball_image">' .
-			'<img src="' . get_stylesheet_directory_uri() . '/assets/images/interface/the_ball_2014.png" ' .
-				 'alt="' . esc_attr( __( 'The Ball 2014', 'theball2014' ) ) . '" ' .
-				 'title="' . esc_attr( __( 'The Ball 2014', 'theball2014' ) ) . '" ' .
-				 'style="width: 100px; height: 100px;" ' .
-				 'id="the_ball_header" />' .
-			'</a>' ;
-
-}
-
-// Add a filter for the above.
-add_filter( 'theball_image', 'theball2014_theball_image', 10, 1 );
-
-
-
-/**
- * Override supporters footer template file.
- *
- * @since 1.0
- *
- * @param str $default The default path to the template file.
- * @return str $default The modified path to the template file.
- */
-function theball2014_supporters_file( $default ) {
-
-	// Pass for 2014 (it's the same as the main site)
-	return $default;
-
-}
-
-// Add a filter for the above.
-add_filter( 'theball_supporters', 'theball2014_supporters_file', 10, 1 );
-
-
-
-/**
- * Override users in "Team" template file.
+ * Load theme class if not yet loaded and return instance.
  *
  * @since 1.0.1
  *
- * @param array $users The default set of users.
- * @return array $users The modified set of users.
+ * @return SOF_The_Ball_Theme $theme The theme instance.
  */
-function theball2014_team_members( $default ) {
+function sof_the_ball_2014_theme() {
 
-	// 2014 users
-	return [ 3, 5, 8, 7, 2, 4 ];
+	// Declare as static.
+	static $theme;
+
+	// Instantiate plugin if not yet instantiated.
+	if ( ! isset( $theme ) ) {
+		include get_stylesheet_directory() . '/includes/class-theme.php';
+		$theme = new SOF_The_Ball_2014_Theme();
+	}
+
+	// --<
+	return $theme;
 
 }
 
-// Add a filter for the above.
-add_filter( 'theball_team_members', 'theball2014_team_members', 10, 1 );
+// Init immediately.
+sof_the_ball_2014_theme();
 
 
 

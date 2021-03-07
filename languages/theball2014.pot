@@ -25,7 +25,7 @@ msgid "The Ball 2014 Child Theme"
 msgstr ""
 
 #. Theme URI of the plugin/theme
-msgid "http://theball.tv/2014/"
+msgid "https://theball.tv/2014/"
 msgstr ""
 
 #. Description of the plugin/theme
@@ -37,5 +37,5 @@ msgid "Christian Wach"
 msgstr ""
 
 #. Author URI of the plugin/theme
-msgid "http://www.haystack.co.uk"
+msgid "https://www.haystack.co.uk"
 msgstr ""
