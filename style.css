@@ -1,13 +1,15 @@
-/*
---------------------------------------------------------------------------------
-Theme Name: The Ball 2014 Child Theme
-Theme URI: https://theball.tv/2014/
-Description: A child theme for The Ball 2014.
-Version: 2.0.0
-Template: theball
-Author: Christian Wach
-Author URI: https://www.haystack.co.uk
---------------------------------------------------------------------------------
-*/
+/**
+ * Theme Name:  The Ball 2014 Child Theme
+ * Description: A child theme for The Ball 2014.
+ * Theme URI:   https://github.com/spiritoffootball/theball2014
+ * Version:     2.0.0
+ * Author:      Christian Wach
+ * Author URI:  https://www.haystack.co.uk
+ * Template:    theball
+ * Text Domain: theball2014
+ * Domain Path: /languages
+ *
+ * @package The_Ball_2014
+ */
 
 /* deliberately empty: see 'functions.php' for how styles and scripts are enqueued */
